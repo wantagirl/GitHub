@@ -1,6 +1,4 @@
 @echo off
-
-%1
-
+main.exe
 @echo.	%empty line%
 @pause

@@ -2,12 +2,14 @@
 
 /*
 交换类排序：
-1.冒泡
-2.快速（QSort），需要递归
+	1.冒泡
+	2.快速（QSort），需要递归
 插入式排序：
-1.直接插入（改进：折半插入）
-2.希尔排序
+	1.直接插入（改进：折半插入）
+	2.希尔排序
 */
+
+//交换类
 void bubleSort(int a[], int n)	//从小到大
 {
 	int i,j,k;
@@ -25,6 +27,7 @@ void bubleSort(int a[], int n)	//从小到大
 	}
 }
 
+//插入式排序
 void shellSort(int a[], int n)	//从小到大
 {
 	int gap, key, i, j;
