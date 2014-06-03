@@ -10,10 +10,10 @@ int main(void)
 	int i = 0;
 	char c = 0;
 
-	l = makeList(7);
+	l = makeList();
 	//delList(l);
-	countList(l,&i);
+	//countList(l,&i);
+	//showList(l);
 	
-	
-	testDelInsert(l);
+	testList(l);
 }

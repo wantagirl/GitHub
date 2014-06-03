@@ -16,14 +16,27 @@ typedef unsigned int 	UINT32;
 
 typedef enum
 {
-	FALSE = 0,
-	TRUE = 1
+	START_BOOL,	//invalid first
+	FALSE,
+	TRUE,
+	END_BOOL
 }BOOL;
 
 typedef enum
 {
-	FAILED = 0,
-	SUCCESS = 1
+	START_STATUS,	//invalid first
+	FAILED,
+	SUCCESS,
+	END_STATUS
 }STATUS;
+
+typedef enum
+{
+	START_TYPE,
+	NULL_T,
+	LISTHEAD,
+	LISTTAIL,
+	END_TYPE
+}TYPES;
 
 #endif

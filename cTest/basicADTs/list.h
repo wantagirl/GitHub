@@ -4,46 +4,42 @@
 #include "includes.h"
 #include "defs.h"
 
-/**************
-NODE:通用节点
-LIST:带头结点的双向链表，指针型
-**************/
-typedef struct node
+
+typedef struct node 	//NODE:通用节点，头尾节点前后指针各有一个为NULL
 {
 	struct node *prev;
 	struct node *next;
-	void *content;
+	TYPES type;
+	void *load;
 }NODE;
 
-typedef NODE *LIST;	//LIST就是指向头结点的指针
+typedef NODE *LIST;	//LIST:链表，双向，有头尾节点，内容为指向头结点的指针
 
-/**************
-链表操作函数
-**************/
-LIST makeList(int nodeCount);
+//Basic list opts
+LIST makeList(void);	//分配内存的函数返回值为指针，NULL为执行失败
 STATUS delList(LIST l);
-STATUS countList(LIST l, int *len);
+STATUS unloadList(LIST l);
+STATUS reverseList(LIST l);
+/*sort:待实现，参考sort->strSort*/
+STATUS countList(LIST l, int *cnt);	//求值函数通过指针传回返回值
+STATUS sizeofList(LIST l, int *sz);
+STATUS isListEmpty(LIST l, BOOL *retval);
 
-NODE *insertNode(LIST l, int idx, void *cntnt);
-STATUS releaseNode(void *content);
+//Basic node-list opts
+NODE *insertNode(LIST l, int idx, TYPES tp, void *ld);
+STATUS isSameNodeLoad(NODE *n1, NODE *n2, BOOL *retval);	//待修改
+STATUS sizeofNodeLoad(NODE *n, int *sz);	//待修改
+STATUS releaseNodeLoad(void *ld);	//待修改
 STATUS delNode(LIST l, int idx);
+STATUS delNodeByAddr(LIST l, NODE *n);
+
+//find, get opts
+NODE *findFirstNode(LIST l);
+NODE *findLastNode(LIST l);
+
 
 //for test
 void showList(LIST l);
-void testDelInsert(LIST l);
-
-//Todo
-//advance list, 对指针的类型做说明，地址为何跳跃32?
-STATUS findNodeIndex(void);
-STATUS findNodeAtIndex(void);
-STATUS FindPrevNode(void);
-STATUS FindPrevNode(void);
-
-STATUS ListFindIndex(void);
-STATUS ListFindFirst(void);
-STATUS ListFindLast(void);
-STATUS isListEmpty(void);
-STATUS isNodeLast(void);
-STATUS isNodeFirst(void);
+void testList(LIST l);
 
 #endif
